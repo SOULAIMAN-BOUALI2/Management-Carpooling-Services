@@ -7,14 +7,22 @@ import javax.servlet.http.*;
 
 @WebFilter("/secure/*")
 public class AuthenticationFilter implements Filter {
+
+    @Override
     public void init(FilterConfig config) throws ServletException {
+        // No initialization required for this filter
+        // Authentication logic is handled inside doFilter()
     }
 
+    @Override
     public void destroy() {
+        // No resources to release when filter is destroyed
     }
 
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
+
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession session = req.getSession(false);
 
